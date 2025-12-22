@@ -7,10 +7,17 @@ import { ProjectSectionHashes } from "../../json/ProjectSectionHashes";
 import { ProjectImagesObject } from "~/json/ProjectImagesObject";
 import { ProjectLinksObject } from "~/json/ProjectLinksObject";
 
+// icons
+import { CiMenuFries } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
+
+// component function
 export default function AppHeader() {
   const location = useLocation();
   const [activeLocationHash, setActiveLocationHash] = useState<string | undefined>(ProjectSectionHashes[0].url);
-  const [hasScrolled, setHasScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState<boolean>(false);
+
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false)
 
   // scroll spy
   useEffect(() => {
@@ -142,11 +149,11 @@ export default function AppHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-300 bg-black flex justify-between items-center p-10">
+    <header className="sticky top-0 z-300 bg-black flex justify-between items-center p-5  md:p-10">
       {/* left */}
       <a href={ProjectLinksObject.Home.path}>
         <img
-          className="w-45"
+          className="w-28 md:w-45"
           src={ProjectImagesObject.CodeLogo.src}
           alt={ProjectImagesObject.CodeLogo.alt}
         />
@@ -154,7 +161,7 @@ export default function AppHeader() {
 
       {/* nav */}
       <nav>
-        <ul className="flex gap-7">
+        <ul className="gap-7 hidden md:flex">
           {ProjectSectionHashes.map((item) => {
             const itemHash = item.url.trim().toLowerCase();
             const isActive = activeLocationHash === itemHash;
@@ -182,20 +189,106 @@ export default function AppHeader() {
       </nav>
 
       {/* right */}
-      <div className="flex items-center gap-7">
+      <div className="flex items-center gap-3 md:gap-7">
         <a
-          className="font-extrabold" 
+          className="font-extrabold hidden md:block" 
           href={ProjectLinksObject.AppLogin.path}
         >
           Entrar
         </a>
         <a 
-          className="rounded-full py-2 px-6 bg-white text-black"
+          className="rounded-full py-2 px-5 bg-white text-black hidden md:block"
           href={ProjectLinksObject.AppRegister.path}
         >
-          Cadastre-se, é grátis!
+          <span>
+            Cadastre-se, é grátis!
+          </span>
         </a>
+
+        {/* mobile menu trigger */}
+        <button
+          className="block md:hidden cursor-pointer"
+          onClick={()=> setMobileMenuOpen(true)}
+        >
+          <CiMenuFries size={28} fill="white" />
+        </button>
       </div>
+
+      {/* mobile menu */}
+      {mobileMenuOpen && (
+        <div>
+            <div 
+              className="absolute bg-black top-0 left-0 w-screen h-screen opacity-60"
+              onClick={()=> setMobileMenuOpen(false)}
+            >
+            </div>
+            <div className="absolute top-0 right-0 w-12/12 bg-black border border-t-0 border-white px-5 py-10 rounded-md">
+            {/* header */}
+            <div className="flex items-center justify-between mb-10">
+              <span className="font-bold">
+                Navegação
+              </span>
+              <button 
+                className="cursor-pointer"
+                onClick={()=> setMobileMenuOpen(false)}
+              >
+                <IoMdClose size={28} className="-mt-1" />
+              </button>
+            </div>
+
+            {/* navigation */}
+            <nav className="mb-10">
+              <ul className="flex flex-col gap-5">
+                {ProjectSectionHashes.map((item) => {
+                  const itemHash = item.url.trim().toLowerCase();
+                  const isActive = activeLocationHash === itemHash;
+
+                  return (
+                    <li
+                      key={item.url}
+                      onClick={()=> setMobileMenuOpen(false)}
+                      className={`
+                        font-bold 
+                        ${isActive 
+                          ? "opacity-60 underline decoration-[#007bff] underline-offset-4 before:content-['>'] before:mr-2 before:text-[#007bff]" 
+                          : "ml-4"}
+                      `}
+                    >
+                      <a 
+                        href={`#${item.url}`}
+                        onClick={(e) => handleAnchorClick(e, item.url)}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+
+            {/* login and register */}
+            <div className="flex flex-col gap-2">
+              <a 
+                className="text-center rounded-full py-2 px-5 bg-white text-black block"
+                href={ProjectLinksObject.AppRegister.path}
+              >
+                <span>
+                  Cadastre-se, é grátis!
+                </span>
+              </a>
+
+              <a 
+                className="text-center rounded-full py-2 px-5 border border-white"
+                href={ProjectLinksObject.AppLogin.path}
+              >
+                <span>
+                  Entrar
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
