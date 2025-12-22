@@ -20,7 +20,7 @@ export default function SolutionsSection(){
   return (
     <section id={solutionsSectionHashId}>
       {/* feature cards */}
-      <div className="flex flex-col mb-35">
+      <div className="flex flex-col mb-27">
         <div className="mb-48">
           <h2 className="text-center text-6xl">
             O Code <span className="bg-linear-to-r from-[#E001FF] via-[#6F3FFF] to-[#007BFF] bg-clip-text text-transparent">Facilita</span> para você:
