@@ -50,19 +50,30 @@ export default function SolutionsSection() {
         <FeatureCards />
       </div>
 
+      {/* section title and description */}
+      <div className="flex flex-col items-center justify-center gap-5">
+        <h2 className="text-4xl md:text-6xl text-center leading-12 md:leading-18 font-bold">
+          3 Passos <br />
+          para criar seu site.
+        </h2>
+        <p className="text-center text-xl md:text-3xl opacity-80">
+          Veja como é prático e rápido <span className="bg-linear-to-r from-[#E001FF] via-[#6F3FFF] to-[#007BFF] bg-clip-text text-transparent">criar um projeto do zero</span>.
+        </p>
+      </div>
+
       {/* steps carousel */}
-      <div className="mt-14 flex flex-col md:flex-row gap-10 justify-between w-full py-15 px-10">
+      <div className="mt-10 md:mt-14 flex flex-col md:flex-row gap-10 justify-between w-full py-15 px-10">
         {/* steps */}
-        <div className="flex flex-col md:max-w-5/12 gap-5">
+        <div className="flex flex-col justify-center w-full lg:max-w-5/12 gap-5">
           {projectCreationSteps.map((item, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative border-2 rounded-2xl border-[#1f1f1f] lg:rounded-none lg:border-none">
               <div
                 onClick={() => {
                   setStepSelected(index);
                   if (isOnMobileDevice) setIsStepModalOpen(true);
                 }}
                 className={`
-                  flex flex-col md:flex-row md:w-10/12 gap-5 px-8 py-10 cursor-pointer rounded-2xl
+                  flex flex-col md:flex-row md:justify-between lg:w-10/12 gap-5 px-8 py-10 cursor-pointer rounded-2xl
                   border transition-colors duration-200
                   ${stepSelected === index ? "border-white" : "border-transparent"}
                 `}
@@ -80,13 +91,14 @@ export default function SolutionsSection() {
                 </div>
 
                 {/* touch indicator for mobile */}
-                <span className="flex md:hidden w-full justify-end">
+                <span className="flex lg:hidden w-full md:w-auto justify-end">
                   <MdOutlineTouchApp size={30} className="-rotate-30" />
                 </span>
               </div>
 
+              {/* aside arrow */}
               {stepSelected === index && (
-                <span className="hidden md:block">
+                <span className="hidden lg:block">
                   <SlArrowRight className="absolute -right-6 top-1/2 -translate-y-1/2 text-white text-4xl pointer-events-none" />
                 </span>
               )}
