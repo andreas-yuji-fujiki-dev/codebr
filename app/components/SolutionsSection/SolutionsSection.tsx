@@ -18,7 +18,7 @@ export default function SolutionsSection(){
   const [stepSelected, setStepSelected] = useState(0)
 
   return (
-    <section id={solutionsSectionHashId}>
+    <section id={solutionsSectionHashId} className="scroll-mt-70">
       {/* feature cards */}
       <div className="flex flex-col mb-27">
         <div className="mb-48">

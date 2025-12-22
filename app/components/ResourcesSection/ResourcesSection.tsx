@@ -9,7 +9,7 @@ export default function ResourcesSection() {
     ProjectSectionHashes.find((item) => item.label === "Recursos")?.url;
 
   return (
-    <section id={resourcesSectionHashId} className="mt-20">
+    <section id={resourcesSectionHashId} className="mt-20 scroll-mt-70">
       {/* templates carousel */}
       <div>
         <h2 className="text-6xl text-center leading-17">

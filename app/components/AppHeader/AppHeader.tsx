@@ -9,18 +9,128 @@ import { ProjectLinksObject } from "~/json/ProjectLinksObject";
 
 export default function AppHeader() {
   const location = useLocation();
-  const [ activeLocationHash, setActiveLocationHash ] = useState<string | undefined>("");
+  const [activeLocationHash, setActiveLocationHash] = useState<string | undefined>(ProjectSectionHashes[0].url);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  // scroll spy
+  useEffect(() => {
+  const sections = ProjectSectionHashes
+    .map(item => document.getElementById(item.url))
+    .filter(Boolean) as HTMLElement[];
+
+  if (!sections.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveLocationHash(entry.target.id);
+        }
+      });
+    },
+    {
+      root: null, // viewport
+      rootMargin: "-300px 0px -50% 0px",
+      threshold: 0,
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+
+  return () => observer.disconnect();
+}, []);
+
+  // Efeito para rolar para o hash ao carregar a página
+  useEffect(() => {
+    // Se já rolou, não faz nada
+    if (hasScrolled) return;
+    
+    // Se tem hash na URL, rola para ele
+    if (location.hash) {
+      const hashWithoutHash = location.hash.substring(1); // Remove o #
+      const element = document.getElementById(hashWithoutHash);
+      
+      if (element) {
+        // Pequeno delay para garantir que o DOM está pronto
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }, 100);
+      }
+    } 
+    // Se não tem hash, rola para a primeira seção
+    else {
+      const firstSection = ProjectSectionHashes[0]?.url;
+      const element = document.getElementById(firstSection);
+      
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Adiciona o hash da primeira seção à URL
+          window.history.replaceState(null, '', `#${firstSection}`);
+        }, 100);
+      }
+    }
+    
+    setHasScrolled(true);
+  }, [location.hash, hasScrolled]);
 
   // active hash handler
   useEffect(() => {
-    setActiveLocationHash(
-      location.hash?.trim().toLowerCase() || // if there is an active hash
-      ProjectSectionHashes.find((item) => item.label === "Comece Agora")?.url // fallback to home
-    );
-  }, [location.hash]);
+  const hash = location.hash.replace("#", "").trim().toLowerCase();
+
+  const targetHash =
+    hash ||
+    ProjectSectionHashes.find((item) => item.label === "Comece Agora")?.url;
+
+  if (!targetHash) return;
+
+  setActiveLocationHash(targetHash);
+
+  // Aguarda o DOM renderizar antes de rolar
+  requestAnimationFrame(() => {
+    const element = document.getElementById(targetHash);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+}, [location.hash]);
+
+  // Handler para clique nos links de âncora
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    // Previne o comportamento padrão
+    e.preventDefault();
+    
+    // Cria o hash com # na frente
+    const hash = `#${url}`;
+    const elementId = url;
+    
+    // Rola para o elemento
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Atualiza a URL no navegador
+      window.history.pushState(null, '', hash);
+      
+      // Atualiza o estado do hash ativo
+      setActiveLocationHash(url.toLowerCase());
+    }
+  };
 
   return (
-    <header className="sticky top-0  z-300 bg-black flex justify-between items-center p-10">
+    <header className="sticky top-0 z-300 bg-black flex justify-between items-center p-10">
       {/* left */}
       <a href={ProjectLinksObject.Home.path}>
         <img
@@ -47,7 +157,12 @@ export default function AppHeader() {
                     : ""}
                 `}
               >
-                <a href={item.url}>{item.label}</a>
+                <a 
+                  href={`#${item.url}`}
+                  onClick={(e) => handleAnchorClick(e, item.url)}
+                >
+                  {item.label}
+                </a>
               </li>
             );
           })}

@@ -11,7 +11,7 @@ export default function PricingSection() {
     ProjectSectionHashes.find((item) => item.label === "Planos")?.url;
 
   return (
-    <section id={pricingSectionHashId} className="mt-20">
+    <section id={pricingSectionHashId} className="mt-20 scroll-mt-70">
       <h2 className="text-6xl text-center mb-12">
         Planos
       </h2>

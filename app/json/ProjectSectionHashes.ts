@@ -6,18 +6,18 @@ interface ProjectSectionHashesTypes {
 export const ProjectSectionHashes: ProjectSectionHashesTypes[] = [
   {
     label: "Comece Agora",
-    url: "#welcome"
+    url: "welcome"
   },
   {
     label: "Soluções",
-    url: "#solutions"
+    url: "solutions"
   },
   {
     label: "Recursos",
-    url: "#resources"
+    url: "resources"
   },
   {
     label: "Planos",
-    url: "#pricing"
+    url: "pricing"
   }
 ]
