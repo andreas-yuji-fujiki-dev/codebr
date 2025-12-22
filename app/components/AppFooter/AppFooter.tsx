@@ -8,7 +8,7 @@ export default function AppFooter(){
   const currentYear = String(date.getFullYear());
 
   return (
-    <footer className="flex flex-col gap-10 md:flex-wrap md:gap-0 justify-between items-center py-20 px-10 mt-35 bg-black">
+    <footer className="flex flex-col gap-10 md:flex-row md:gap-0 justify-between items-center py-20 px-10 mt-35 bg-black">
       {/* left side */}
       <div>
         <a href={ProjectLinksObject.Home.path}>
