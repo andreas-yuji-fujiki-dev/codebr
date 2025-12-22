@@ -22,7 +22,7 @@ export default function ResourcesSection() {
       </div>
 
       {/* easy integration */}
-      <div className="mt-32">
+      <div className="mt-35">
         <h2 className="text-6xl text-center">
           Integração rápida e fácil com:
         </h2>
