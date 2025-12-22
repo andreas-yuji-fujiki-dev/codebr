@@ -40,7 +40,7 @@ export function HomePage() {
     <div>
       <AppHeader />
 
-      <div className="flex flex-col gap-50">
+      <div className="flex flex-col gap-5 md:gap-20 lg:gap-50">
         <HeroSection />
 
         <motion.div {...motionProps}>

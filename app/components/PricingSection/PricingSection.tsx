@@ -12,12 +12,12 @@ export default function PricingSection() {
 
   return (
     <section id={pricingSectionHashId} className="mt-20 scroll-mt-70">
-      <h2 className="text-6xl text-center mb-12">
+      <h2 className="text-5xl md:text-6xl text-center mb-12">
         Planos
       </h2>
 
       {/* cards map */}
-      <div className="grid lg:grid-cols-3 flex-wrap justify-center items-center gap-15 lg:px-20">
+      <div className="grid lg:grid-cols-3 lg:justify-center items-center gap-15 px-3 md:px-12 lg:px-20">
         {plansDetails.map((plan, index)=>(
           <div 
             key={index}

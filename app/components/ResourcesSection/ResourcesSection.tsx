@@ -12,7 +12,7 @@ export default function ResourcesSection() {
     <section id={resourcesSectionHashId} className="mt-20 scroll-mt-70">
       {/* templates carousel */}
       <div>
-        <h2 className="text-center text-4xl px-2 leading-12 md:px-0 md:text-6xl md:leading-17">
+        <h2 className="text-center text-4xl px-4 leading-12 md:px-0 md:text-6xl md:leading-17">
           <span className="font-extrabold">Escolha um template base</span> <br />
           e crie seu projeto com 1 clique.
         </h2>
