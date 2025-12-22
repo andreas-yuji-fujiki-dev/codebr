@@ -3,6 +3,7 @@
   justify-content: end;
   width: 100%;
 }
+
 .brutalist-container {
     position: absolute;
     z-index: 1;
@@ -44,4 +45,21 @@
   transform: rotate(-1deg);
   z-index: 1;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media screen and (max-width: 500px){
+  .brutalist-container {
+    right: 3%;
+    width: auto;
+  }
+
+  .brutalist-input {
+    font-size: 12px;
+  }
+
+  .brutalist-label {
+    left: -8px;
+    top: -15px;
+    font-size: 10px;
+  }
 }

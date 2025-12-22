@@ -28,3 +28,18 @@
   background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
   color: rgb(4, 4, 38);
 }
+
+/* responsivity */
+
+@media screen and (max-width: 1180px) {
+  .main-call-button {
+    margin-top: 10px;
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .main-call-button {
+    font-size: 1.22rem;
+  }
+}

@@ -14,14 +14,14 @@ export default function HeroSection(){
 
   return (
     <>
-      <section id={heroSectionHashId} className="relative mb-72 scroll-mt-75">
+      <section id={heroSectionHashId} className="relative mb-24 md:lg-72 scroll-mt-75">
         {/* spinning space background */}
         <SpinningSpace />
 
         <div className="w-full min-h-3/6 pt-12 absolute top-0 left-0 flex flex-col items-center justify-center gap-22">
           {/* call to action container */}
           <div className="flex flex-col items-center justify-center gap-6">
-            <h1 className="text-6xl text-center max-w-[65%] font-bold">
+            <h1 className="text-3xl md:text-7xl text-center md:max-w-[75%] lg:max-w-[65%] font-bold">
               Crie seu projeto em 30 segundos. <span className="underline decoration-blue-700">Não é exagero!</span>
             </h1>
             <a href={ProjectLinksObject.AppRegister.path}>
@@ -30,7 +30,7 @@ export default function HeroSection(){
           </div>
 
           {/* studio demonstration image */}
-          <div className=" flex flex-col justify-center items-center max-w-10/12">
+          <div className=" flex flex-col justify-center items-center px-1 md:px-5 lg:px-30">
             {/* free 'code.com.br' domain card' */}
             <FreeCodeDomain />
 
