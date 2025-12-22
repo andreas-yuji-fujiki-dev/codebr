@@ -1,13 +1,63 @@
+// components
+import SpinningSpace from "../SpinningSpace/SpinningSpace";
+import CallToActionButton from "../CallToActionButton/CallToActionButton";
+
 // objects
-import { ProjectSectionHashes } from "~/json/ProjectSectionHashes"
+import { ProjectImagesObject } from "~/json/ProjectImagesObject";
+import { ProjectLinksObject } from "~/json/ProjectLinksObject";
+import { ProjectSectionHashes } from "~/json/ProjectSectionHashes";
+
+import './domain-banner.css'
 
 // component function
 export default function HeroSection(){
-  const heroSectionHashId = ProjectSectionHashes.find(item => item.label.includes('Hero'))?.url;
+  const heroSectionHashId = ProjectSectionHashes.find(item => item.label.includes('Comece Agora'))?.url;
 
   return (
-    <section id={heroSectionHashId}>
-      <span>hero section</span> 
-    </section>
+    <>
+      <section id={heroSectionHashId} className="relative mb-72">
+        <SpinningSpace />
+
+        <div className="w-full min-h-3/6 pt-12 absolute top-0 left-0 flex flex-col items-center justify-center gap-22">
+          {/* call to action container */}
+          <div className="flex flex-col items-center justify-center gap-6">
+            <h1 className="text-6xl text-center max-w-[65%] font-bold">
+              Crie seu projeto em 30 segundos. <span className="underline decoration-blue-700">Não é exagero!</span>
+            </h1>
+            <a href={ProjectLinksObject.AppRegister.path}>
+              <CallToActionButton label="Comece Grátis"/>
+            </a>
+          </div>
+
+          {/* studio demonstration image */}
+          <div className=" flex flex-col justify-center items-center max-w-10/12">
+            {/* free 'code.com.br' domain card' */}
+            <div className="domain-banner-container">
+              <div className="brutalist-container">
+                <input
+                  placeholder="seuprojeto.code.com.br"
+                  className="brutalist-input smooth-type"
+                  type="text"
+                />
+                <label className="brutalist-label">domínio code.com.br grátis!</label>
+              </div>
+            </div>
+
+            {/* studio demo image */}
+            <img
+              className="border-3 border-[#007bff] opacity-75"
+              src={ProjectImagesObject.CodeStudioDemo.src} 
+              alt={ProjectImagesObject.CodeStudioDemo.alt} 
+            />
+          </div>
+        </div>
+
+        {/* waves below */}
+        <img
+          className="min-w-full" 
+          src={ProjectImagesObject.HeroWaves.src} 
+        />
+      </section>
+    </>
   )
 }

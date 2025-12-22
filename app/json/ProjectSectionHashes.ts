@@ -5,7 +5,7 @@ interface ProjectSectionHashesTypes {
 
 export const ProjectSectionHashes: ProjectSectionHashesTypes[] = [
   {
-    label: "Hero",
+    label: "Comece Agora",
     url: "#welcome"
   },
   {

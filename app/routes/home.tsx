@@ -3,7 +3,7 @@ import { HomePage } from "~/pages/Home.page";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Code" },
+    { title: "Code BR" },
     { name: "description", content: "Seja bem vindo ao code.com.br!" },
   ];
 }

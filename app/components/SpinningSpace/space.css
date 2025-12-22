@@ -1,0 +1,78 @@
+.space-container {
+  position: relative;
+  overflow: hidden;
+  padding: 200px 0 110px 0;
+
+  width: 100%;
+  min-height: 100dvh;
+  background-color: #000;
+
+  padding: 200px 0 110px 0;
+}
+
+.stars1 {
+  animation: space 10s alternate infinite;
+}
+.stars2 {
+  animation: space 20s alternate infinite;
+}
+.stars3 {
+  animation: space 30s ease-in-out infinite;
+}
+
+.space {
+  background: #000 center / 320px 250px round;
+  
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  background-image:
+      radial-gradient(
+      1px 1px at 10px 10px, 
+      white, 
+      rgba(255, 255, 255, 0)
+      ),
+      radial-gradient(
+      1px 1px at 150px 150px, 
+      white, 
+      rgba(255, 255, 255, 0)
+      ),
+      radial-gradient(
+      1.5px 1.5px at 60px 170px, 
+      white, 
+      rgba(255, 255, 255, 0)
+      ),
+      radial-gradient(
+      1.5px 1.5px at 175px 180px, 
+      white, 
+      rgba(255, 255, 255, 0)
+      ),
+      radial-gradient(
+      2px 2px at 195px 95px, 
+      white, 
+      rgba(255, 255, 255, 0)
+      ),
+      radial-gradient(
+      2.5px 2.5px at 95px 145px, 
+      white, 
+      rgba(255, 255, 255, 0)
+  );
+}
+
+@keyframes space {
+  40% {
+      opacity: 0.75;
+  }
+  50% {
+      opacity: 0.25;
+  }
+  60% {
+      opacity: 0.75;
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}

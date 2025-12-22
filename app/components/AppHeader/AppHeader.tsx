@@ -15,12 +15,12 @@ export default function AppHeader() {
   useEffect(() => {
     setActiveLocationHash(
       location.hash?.trim().toLowerCase() || // if there is an active hash
-      ProjectSectionHashes.find((item) => item.label === "Hero")?.url // fallback to home
+      ProjectSectionHashes.find((item) => item.label === "Comece Agora")?.url // fallback to home
     );
   }, [location.hash]);
 
   return (
-    <header className="relative bg-transparent flex justify-between items-center p-10">
+    <header className="sticky top-0  z-300 bg-black flex justify-between items-center p-10">
       {/* left */}
       <a href={ProjectLinksObject.Home.path}>
         <img
