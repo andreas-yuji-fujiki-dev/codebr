@@ -1,13 +1,12 @@
 // components
 import SpinningSpace from "../SpinningSpace/SpinningSpace";
 import CallToActionButton from "../CallToActionButton/CallToActionButton";
+import FreeCodeDomain from "../FreeCodeDomain/FreeCodeDomain";
 
 // objects
 import { ProjectImagesObject } from "~/json/ProjectImagesObject";
 import { ProjectLinksObject } from "~/json/ProjectLinksObject";
 import { ProjectSectionHashes } from "~/json/ProjectSectionHashes";
-
-import './domain-banner.css'
 
 // component function
 export default function HeroSection(){
@@ -32,16 +31,7 @@ export default function HeroSection(){
           {/* studio demonstration image */}
           <div className=" flex flex-col justify-center items-center max-w-10/12">
             {/* free 'code.com.br' domain card' */}
-            <div className="domain-banner-container">
-              <div className="brutalist-container">
-                <input
-                  placeholder="seuprojeto.code.com.br"
-                  className="brutalist-input smooth-type"
-                  type="text"
-                />
-                <label className="brutalist-label">domínio code.com.br grátis!</label>
-              </div>
-            </div>
+            <FreeCodeDomain />
 
             {/* studio demo image */}
             <img
