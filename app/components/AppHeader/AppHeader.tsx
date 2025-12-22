@@ -14,31 +14,43 @@ export default function AppHeader() {
 
   // scroll spy
   useEffect(() => {
-  const sections = ProjectSectionHashes
-    .map(item => document.getElementById(item.url))
-    .filter(Boolean) as HTMLElement[];
+    const sections = ProjectSectionHashes
+      .map(item => document.getElementById(item.url))
+      .filter(Boolean) as HTMLElement[];
 
-  if (!sections.length) return;
+    if (!sections.length) return;
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveLocationHash(entry.target.id);
-        }
-      });
-    },
-    {
-      root: null, // viewport
-      rootMargin: "-300px 0px -50% 0px",
-      threshold: 0,
-    }
-  );
+    let currentHash = "";
 
-  sections.forEach(section => observer.observe(section));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
 
-  return () => observer.disconnect();
-}, []);
+          const id = entry.target.id;
+
+          // evita loop / updates desnecessários
+          if (currentHash === id) return;
+
+          currentHash = id;
+
+          setActiveLocationHash(id);
+
+          // Atualiza URL SEM criar histórico novo
+          window.history.replaceState(null, "", `#${id}`);
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-300px 0px -50% 0px", // header + sensibilidade
+        threshold: 0,
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   // Efeito para rolar para o hash ao carregar a página
   useEffect(() => {
