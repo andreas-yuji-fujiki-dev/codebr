@@ -69,7 +69,7 @@ export function TemplatesCarousel() {
                 className="md:h-full md:w-full rounded-2xl object-cover pointer-events-none"
               />
 
-              <div className="absolute bottom-14 md:bottom-6 left-6 text-2xl font-semibold text-white drop-shadow-lg text-center md:text-left w-11/12 md:w-auto">
+              <div className="absolute bottom-10 py-2 rounded-lg bg-black md:bottom-6 left-6 text-2xl font-semibold text-white drop-shadow-lg text-center md:text-left w-11/12 md:w-auto">
                 {item.title}
               </div>
             </div>

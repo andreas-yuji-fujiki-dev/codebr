@@ -17,14 +17,13 @@ export default function PricingSection() {
       </h2>
 
       {/* cards map */}
-      <div className="grid grid-cols-3 flex-wrap justify-center items-center gap-15 px-20">
+      <div className="grid lg:grid-cols-3 flex-wrap justify-center items-center gap-15 lg:px-20">
         {plansDetails.map((plan, index)=>(
           <div 
             key={index}
             className={`
               border-2 rounded-xl p-10
               ${plan.highlited ? "border-[#007BFF]" : "border-[#1F1F1F]"}
-
             `}
           >
             {/* card header */}
