@@ -15,6 +15,7 @@ export default function HeroSection(){
   return (
     <>
       <section id={heroSectionHashId} className="relative mb-72 scroll-mt-75">
+        {/* spinning space background */}
         <SpinningSpace />
 
         <div className="w-full min-h-3/6 pt-12 absolute top-0 left-0 flex flex-col items-center justify-center gap-22">

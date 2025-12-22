@@ -161,7 +161,7 @@ export default function AppHeader() {
 
       {/* nav */}
       <nav>
-        <ul className="gap-7 hidden md:flex">
+        <ul className="gap-7 hidden lg:flex">
           {ProjectSectionHashes.map((item) => {
             const itemHash = item.url.trim().toLowerCase();
             const isActive = activeLocationHash === itemHash;
@@ -191,13 +191,13 @@ export default function AppHeader() {
       {/* right */}
       <div className="flex items-center gap-3 md:gap-7">
         <a
-          className="font-extrabold hidden md:block" 
+          className="font-extrabold hidden lg:block" 
           href={ProjectLinksObject.AppLogin.path}
         >
           Entrar
         </a>
         <a 
-          className="rounded-full py-2 px-5 bg-white text-black hidden md:block"
+          className="rounded-full py-2 px-5 bg-white text-black hidden lg:block"
           href={ProjectLinksObject.AppRegister.path}
         >
           <span>
@@ -207,7 +207,7 @@ export default function AppHeader() {
 
         {/* mobile menu trigger */}
         <button
-          className="block md:hidden cursor-pointer"
+          className="block lg:hidden cursor-pointer"
           onClick={()=> setMobileMenuOpen(true)}
         >
           <CiMenuFries size={28} fill="white" />
