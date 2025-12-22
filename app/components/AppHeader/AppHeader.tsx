@@ -222,7 +222,7 @@ export default function AppHeader() {
               onClick={()=> setMobileMenuOpen(false)}
             >
             </div>
-            <div className="absolute top-0 right-0 w-12/12 bg-black border border-t-0 border-white px-5 py-10 rounded-md">
+            <div className="absolute top-0 right-0 w-12/12 bg-black border border-t-0 border-white px-5 py-10 rounded-md rounded-t-none">
             {/* header */}
             <div className="flex items-center justify-between mb-10">
               <span className="font-bold text-xl">
