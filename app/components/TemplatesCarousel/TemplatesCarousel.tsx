@@ -21,14 +21,13 @@ export function TemplatesCarousel() {
   const nextIndex = (current + 1) % total;
 
   return (
-    <div className="relative mt-16 flex items-center justify-center mx-auto max-w-[90%]">
-
+    <div className="relative md:mt-16 flex items-center justify-center mx-auto md:max-w-[90%] overflow-hidden md:overflow-auto">
       {/* botão esquerda */}
       <button
         onClick={prev}
-        className="absolute left-10 z-40 cursor-pointer text-white opacity-60 transition hover:opacity-100"
+        className="absolute left-0 md:left-10 z-40 cursor-pointer text-white opacity-60 transition hover:opacity-100"
       >
-        <IoIosArrowBack size={70} />
+        <IoIosArrowBack className="size-14 md:size-18" />
       </button>
 
       {/* track */}
@@ -47,7 +46,7 @@ export function TemplatesCarousel() {
               className={`
                 absolute inset-0 m-auto
                 h-full w-full rounded-2xl
-                bg-neutral-900
+                md:bg-neutral-900
                 transition-all duration-500 ease-in-out
                 flex items-center justify-center
 
@@ -67,10 +66,10 @@ export function TemplatesCarousel() {
               <img
                 src={item.image}
                 alt={item.title}
-                className="h-full w-full rounded-2xl object-cover"
+                className="md:h-full md:w-full rounded-2xl object-cover pointer-events-none"
               />
 
-              <div className="absolute bottom-6 left-6 text-2xl font-semibold text-white drop-shadow-lg">
+              <div className="absolute bottom-14 md:bottom-6 left-6 text-2xl font-semibold text-white drop-shadow-lg text-center md:text-left w-11/12 md:w-auto">
                 {item.title}
               </div>
             </div>
@@ -81,9 +80,9 @@ export function TemplatesCarousel() {
       {/* botão direita */}
       <button
         onClick={next}
-        className="absolute right-10 z-40 cursor-pointer text-white opacity-60 transition hover:opacity-100"
+        className="absolute right-0 md:right-10 z-40 cursor-pointer text-white opacity-60 transition hover:opacity-100"
       >
-        <IoIosArrowForward size={80} />
+        <IoIosArrowForward className="size-16 md:size-20" />
       </button>
     </div>
   );
