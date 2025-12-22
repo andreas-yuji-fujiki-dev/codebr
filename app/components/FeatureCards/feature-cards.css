@@ -1,0 +1,181 @@
+.solution-cards-container {
+  position: relative;
+  width: 93%;
+  margin: -92px auto 0 auto;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.solution-card {
+  width: 49%;
+  min-height: 400px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.card {
+  background-color: #1a1a1c;
+  border: 1px solid black;
+  position: relative;
+  z-index: 1;
+  transition: all 300ms ease-out;
+  transform-origin: center center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Estado inicial: Programadores com efeito da área 2 */
+.programmers-card .card {
+  transform: rotateX(2.5deg) rotateY(2.5deg) translateZ(0);
+  transform-origin: left bottom;
+  box-shadow: -10px 10px #007bff;
+}
+
+/* Estado inicial: Iniciantes com efeito da área 1 */
+.beginners-card .card {
+  transform: rotateX(2.5deg) rotateY(-2.5deg) translateZ(0);
+  transform-origin: right bottom;
+  box-shadow: 10px 10px #007bff;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 25px 30px;
+  color: #fff;
+  font-size: 23px;
+  letter-spacing: 7px;
+  text-transform: uppercase;
+  background-color: #000;
+  border-top: 0.1px solid #1a1a1c;
+}
+
+.cardInfo {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  background-color: #161616;
+}
+
+.cardItems {
+  list-style: none;
+  width: 100%;
+  padding: 30px;
+  opacity: 0.85;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  line-height: 35px;
+  font-size: 21px;
+}
+
+.cardItems li::before {
+  content: '';
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: -3px;
+  border-radius: 100%;
+  background-image: url('checked.png');
+  background-size: cover;
+}
+
+/* Áreas de hover */
+.hover-area {
+  position: absolute;
+  z-index: 2;
+  width: 50%;
+  height: 50%;
+  background: transparent;
+}
+
+/* Posições das áreas de hover */
+.hover-area-1 {
+  top: 0;
+  left: 0;
+}
+
+.hover-area-2 {
+  top: 0;
+  right: 0;
+}
+
+.hover-area-3 {
+  bottom: 0;
+  right: 0;
+}
+
+.hover-area-4 {
+  bottom: 0;
+  left: 0;
+}
+
+/* Efeitos de hover específicos para o card de programadores */
+.programmers-card .hover-area-1:hover ~ .card {
+  transform-origin: right bottom;
+  transform: rotateX(2.5deg) rotateY(-2.5deg) translateZ(0);
+  box-shadow: 10px 10px #007bff;
+}
+
+.programmers-card .hover-area-2:hover ~ .card {
+  transform-origin: left bottom;
+  transform: rotateX(2.5deg) rotateY(2.5deg) translateZ(0);
+  box-shadow: -10px 10px #007bff;
+}
+
+.programmers-card .hover-area-3:hover ~ .card {
+  transform-origin: left top;
+  transform: rotateX(-2.5deg) rotateY(2.5deg) translateZ(0);
+  box-shadow: -10px -10px #007bff;
+}
+
+.programmers-card .hover-area-4:hover ~ .card {
+  transform-origin: right top;
+  transform: rotateX(-2.5deg) rotateY(-2.5deg) translateZ(0);
+  box-shadow: 10px -10px #007bff;
+}
+
+/* Efeitos de hover específicos para o card de iniciantes */
+.beginners-card .hover-area-1:hover ~ .card {
+  transform-origin: right bottom;
+  transform: rotateX(2.5deg) rotateY(-2.5deg) translateZ(0);
+  box-shadow: 10px 10px #007bff;
+}
+
+.beginners-card .hover-area-2:hover ~ .card {
+  transform-origin: left bottom;
+  transform: rotateX(2.5deg) rotateY(2.5deg) translateZ(0);
+  box-shadow: -10px 10px #007bff;
+}
+
+.beginners-card .hover-area-3:hover ~ .card {
+  transform-origin: left top;
+  transform: rotateX(-2.5deg) rotateY(2.5deg) translateZ(0);
+  box-shadow: -10px -10px #007bff;
+}
+
+.beginners-card .hover-area-4:hover ~ .card {
+  transform-origin: right top;
+  transform: rotateX(-2.5deg) rotateY(-2.5deg) translateZ(0);
+  box-shadow: 10px -10px #007bff;
+}
+
+/* Estado quando nenhuma área está com hover */
+.programmers-card:not(:hover) .card {
+  transform: rotateX(2.5deg) rotateY(2.5deg) translateZ(0);
+  transform-origin: left bottom;
+  box-shadow: -10px 10px #007bff;
+}
+
+.beginners-card:not(:hover) .card {
+  transform: rotateX(2.5deg) rotateY(-2.5deg) translateZ(0);
+  transform-origin: right bottom;
+  box-shadow: 10px 10px #007bff;
+}
