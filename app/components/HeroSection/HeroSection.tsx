@@ -14,7 +14,7 @@ export default function HeroSection(){
 
   return (
     <>
-      <section id={heroSectionHashId} className="relative mb-24 md:lg-72 scroll-mt-75">
+      <section id={heroSectionHashId} className="relative mb-24 md:mb-82 scroll-mt-75">
         {/* spinning space background */}
         <SpinningSpace />
 

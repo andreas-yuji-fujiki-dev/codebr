@@ -179,3 +179,14 @@
   transform-origin: right bottom;
   box-shadow: 10px 10px #007bff;
 }
+
+/* responsivity */
+@media screen and (max-width: 500px){
+  .solution-card {
+    width: 100%;
+  }
+
+  .card-header {
+    font-size: 1.1rem;
+  }
+}

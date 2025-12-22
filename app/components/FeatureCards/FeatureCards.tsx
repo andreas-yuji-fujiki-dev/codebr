@@ -23,7 +23,7 @@ export default function FeatureCards(){
   ];    
 
   return (
-    <div className="solution-cards-container">
+    <div className="solution-cards-container flex flex-col md:flex-row gap-20 md:gap-0">
       {/* programmers card */}
       <div className="solution-card programmers-card">
         {/* hover effect boxes */}
