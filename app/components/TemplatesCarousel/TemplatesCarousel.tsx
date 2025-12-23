@@ -25,9 +25,9 @@ export function TemplatesCarousel() {
       {/* botão esquerda */}
       <button
         onClick={prev}
-        className="absolute left-0 md:left-10 z-40 cursor-pointer text-white opacity-60 transition hover:opacity-100"
+        className="absolute left-0 transition cursor-pointer text-white opacity-100 md:left-10 z-40 md:opacity-60 md:hover:opacity-100"
       >
-        <IoIosArrowBack className="size-14 md:size-18" />
+        <IoIosArrowBack className="size-14 md:size-18 fill-[#007bff] md:fill-white" />
       </button>
 
       {/* track */}
@@ -44,32 +44,27 @@ export function TemplatesCarousel() {
             <div
               key={item.id}
               className={`
-                absolute inset-0 m-auto
+                absolute inset-0
                 h-full w-full rounded-2xl
-                md:bg-neutral-900
                 transition-all duration-500 ease-in-out
-                flex items-center justify-center
+                z-20
 
-                ${isActive && `
-                  z-30 opacity-100 scale-100 translate-x-0
-                `}
-
-                ${isLeft && `
-                  z-20 opacity-60 scale-[0.8] -translate-x-70
-                `}
-
-                ${isRight && `
-                  z-20 opacity-60 scale-[0.8] translate-x-70
-                `}
+                ${isActive && `z-30 opacity-100 scale-100 translate-x-0`}
+                ${isLeft && `opacity-60 scale-[0.8] -translate-x-70`}
+                ${isRight && `opacity-60 scale-[0.8] translate-x-70`}
               `}
             >
               <img
                 src={item.image}
-                alt={item.title}
-                className="md:h-full md:w-full rounded-2xl object-cover pointer-events-none"
+                alt={item.alt}
+                className="
+                  absolute inset-0
+                  h-full w-full
+                  pointer-events-none
+                "
               />
 
-              <div className="absolute bottom-10 py-2 rounded-lg bg-black md:bottom-6 left-6 text-2xl font-semibold text-white drop-shadow-lg text-center md:text-left w-11/12 md:w-auto">
+              <div className="absolute bottom-8 rounded-xl text-2xl font-semibold text-white drop-shadow-lg md:bottom-0 left-6 md:left-4/12 md:bg-black/90 md:py-2 md:px-4 md:border md:border-white/20">
                 {item.title}
               </div>
             </div>
@@ -80,9 +75,9 @@ export function TemplatesCarousel() {
       {/* botão direita */}
       <button
         onClick={next}
-        className="absolute right-0 md:right-10 z-40 cursor-pointer text-white opacity-60 transition hover:opacity-100"
+        className="absolute right-0 transition cursor-pointer text-white opacity-100 md:left-10 z-40 md:opacity-60 md:hover:opacity-100"
       >
-        <IoIosArrowForward className="size-16 md:size-20" />
+        <IoIosArrowForward className="size-16 md:size-20 fill-[#007bff] md:fill-white" />
       </button>
     </div>
   );
