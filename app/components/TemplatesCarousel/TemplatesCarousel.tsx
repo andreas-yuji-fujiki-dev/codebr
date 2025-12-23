@@ -49,9 +49,9 @@ export function TemplatesCarousel() {
                 transition-all duration-500 ease-in-out
                 z-20
 
-                ${isActive && `z-30 opacity-100 scale-100 translate-x-0`}
-                ${isLeft && `opacity-60 scale-[0.8] -translate-x-70`}
-                ${isRight && `opacity-60 scale-[0.8] translate-x-70`}
+                ${isActive && 'z-30 opacity-100 scale-100 translate-x-0'}
+                ${isLeft && 'opacity-60 scale-[0.8] -translate-x-70'}
+                ${isRight && 'opacity-60 scale-[0.8] translate-x-70'}
               `}
             >
               <img
