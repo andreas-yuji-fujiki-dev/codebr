@@ -77,6 +77,12 @@
   }
 }
 
+@media screen and (max-width: 1080px){
+  .space-container  {
+    min-height: 70dvh;
+  }
+}
+
 @media screen and (max-width: 500px){
   .space-container {
     min-height: 75dvh;
