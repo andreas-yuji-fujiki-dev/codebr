@@ -75,7 +75,7 @@ export function TemplatesCarousel() {
       {/* botão direita */}
       <button
         onClick={next}
-        className="absolute right-0 transition cursor-pointer text-white opacity-100 md:left-10 z-40 md:opacity-60 md:hover:opacity-100"
+        className="absolute right-0 transition cursor-pointer text-white opacity-100 md:right-10 z-40 md:opacity-60 md:hover:opacity-100"
       >
         <IoIosArrowForward className="size-16 md:size-20 fill-[#007bff] md:fill-white" />
       </button>
